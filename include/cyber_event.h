@@ -8,7 +8,13 @@
 #ifndef CYBER_EVENT_H_
 #define CYBER_EVENT_H_
 
+#ifdef _WIN32 
+#include <SDL.h>
+#endif
+
+#ifdef _LINUX
 #include <SDL/SDL.h>
+#endif
 
 class CyberEvent {
 

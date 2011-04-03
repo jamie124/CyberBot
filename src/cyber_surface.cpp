@@ -15,8 +15,10 @@ SDL_Surface* CyberSurface::onLoad(char* file){
 	SDL_Surface* tempSurf = NULL;
 	SDL_Surface* returnSurf = NULL;
 
-	if ((tempSurf = IMG_Load(file)) == NULL)
+	if ((tempSurf = IMG_Load(file)) == NULL){
+		printf("Couldn't load %s:%s\n",file,IMG_GetError());
 		return NULL;
+	}
 
 	returnSurf = SDL_DisplayFormatAlpha(tempSurf);
 	SDL_FreeSurface(tempSurf);

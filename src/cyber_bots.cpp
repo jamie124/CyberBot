@@ -3,10 +3,10 @@
 // Author      : James Whitwell
 // Version     :
 // Copyright   : 2011 James Whitwell
-// Description : Hello World in C++, Ansi-style
 //============================================================================
 
 #include <iostream>
+//#include "stdafx.h"
 #include "cyber_bots.h"
 
 Cyber::Cyber() {
@@ -118,8 +118,8 @@ void Cyber::checkForWinner(bool vertical) {
 		checkForWinner(false);
 }
 
-int main() {
-
+int main(int argc, char* argv[])
+{
 	Cyber cyber;
 
 	return cyber.onExecute();

@@ -8,7 +8,13 @@
 #ifndef CYBER_BOTS_H_
 #define CYBER_BOTS_H_
 
+#ifdef _WIN32 
+#include <SDL.h>
+#endif
+
+#ifdef _LINUX
 #include <SDL/SDL.h>
+#endif
 
 #include "cyber_event.h"
 #include "cyber_surface.h"
