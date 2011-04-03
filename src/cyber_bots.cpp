@@ -70,52 +70,62 @@ int Cyber::getValueFromGrid(int i, int g){
 		return 0;
 }
 
-void Cyber::checkForWinner(bool vertical) {
-	bool recurse = true;
+void Cyber::checkForWinner(int recurseLevel) {
+	int nextRecurseLevel = 1;
+	bool keepRecursing = true;
 	int horizontalTotal = 0;
 	int verticalTotal = 0;
 
 	for (int i = 0; i < 3; i++) {
-		if (vertical == true) {
-			for (int g = 0; g < 3; g++) {
+		switch (recurseLevel){
+			case 0:{
+				for (int g = 0; g < 3; g++) {
 
-				// To prevent an X and O next to each other causing a win make 2 increase by 4 instead
-				verticalTotal += getValueFromGrid(g, i);
+					// To prevent an X and O next to each other causing a win make 2 increase by 4 instead
+					verticalTotal += getValueFromGrid(g, i);
 
-				if (verticalTotal == 3) {
-					winner = 1;
-					recurse = false;
-				} else if (verticalTotal == 12) {
-					winner = 2;
-					recurse = false;
+					if (verticalTotal == 3) {
+						winner = 1;
+						keepRecursing = false;
+					} else if (verticalTotal == 12) {
+						winner = 2;
+						keepRecursing = false;
+					}
 				}
+				break;
 			}
+			case 1: {
+				for (int g = 0; g < 3; g++) {
 
-		} else {
-			for (int g = 0; g < 3; g++) {
+					// To prevent an X and O next to each other causing a win make 2 increase by 4 instead
+					horizontalTotal += getValueFromGrid(i, g);
 
-				// To prevent an X and O next to each other causing a win make 2 increase by 4 instead
-				horizontalTotal += getValueFromGrid(i, g);
-
-				if (horizontalTotal == 3) {
-					winner = 1;
-					recurse = false;
-				} else if (horizontalTotal == 12) {
-					winner = 2;
-					recurse = false;
+					if (horizontalTotal == 3) {
+						winner = 1;
+						keepRecursing = false;
+					} else if (horizontalTotal == 12) {
+						winner = 2;
+						keepRecursing = false;
+					}
 				}
+				break;
 			}
-
-			recurse = false;
 		}
-		// Reset totals for next row
-		verticalTotal = 0;
-		horizontalTotal = 0;
+			// Go to next recursion level
+			if (nextRecurseLevel < 2)
+				nextRecurseLevel++;
+			else
+				keepRecursing = false;
+		
 	}
+		// Reset totals for next row
+	verticalTotal = 0;
+	horizontalTotal = 0;
+	
 
 	// Now check for horizontal winners
-	if (recurse)
-		checkForWinner(false);
+	if (keepRecursing)
+		checkForWinner(nextRecurseLevel);
 }
 
 int main(int argc, char* argv[])

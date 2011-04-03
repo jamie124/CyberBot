@@ -19,16 +19,15 @@ void Cyber::onRender() {
 				CyberSurface::onDraw(surfDisplay, surfX, x, y);
 			} else if (grid[i][g] == GRID_TYPE_O) {
 				CyberSurface::onDraw(surfDisplay, surfO, x, y);
-
 			}
 		}
 	}
 
 	if (winner > -1){
 		if (winner == 1)
-			CyberSurface::onDraw(surfDisplay, surfXWon, 200, 200);
+			CyberSurface::onDraw(surfDisplay, surfXWon, 200, 100);
 		else if (winner == 2)
-			CyberSurface::onDraw(surfDisplay, surfOWon, 200, 200);
+			CyberSurface::onDraw(surfDisplay, surfOWon, 200, 100);
 	}
 
 	SDL_Flip(surfDisplay);

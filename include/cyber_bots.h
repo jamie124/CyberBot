@@ -66,7 +66,7 @@ public:
 
 	void setCell(int horizontal, int verticle, int type);
 
-	void checkForWinner(bool vertical);
+	void checkForWinner(int recurseLevel);
 
 	int getValueFromGrid(int i, int g);
 };

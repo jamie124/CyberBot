@@ -32,7 +32,7 @@ bool Cyber::onInit() {
 	if ((surfOWon = CyberSurface::onLoad("images/o_won.png")) == NULL)
 		return false;
 
-	CyberSurface::transparent(surfO, 255, 0, 255);
+	//CyberSurface::transparent(surfO, 255, 0, 255);
 	CyberSurface::transparent(surfX, 255, 0, 255);
 
 	CyberSurface::transparent(surfXWon, 255, 0, 255);

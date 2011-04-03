@@ -27,7 +27,7 @@ void Cyber::onLButtonDown(int mX, int mY) {
 		currentPlayer = 0;
 	}
 
-	checkForWinner(true);
+	checkForWinner(0);
 
 }
 
