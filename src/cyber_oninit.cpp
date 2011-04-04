@@ -17,26 +17,27 @@ bool Cyber::onInit() {
 		return false;
 	}
 
-	if ((surfGrid = CyberSurface::onLoad("images/grid.png")) == NULL)
+	if (cyberSurface->onLoad("images/grid.png") == false)
+		return false;
+	
+	if (cyberSurface->onLoad("images/x.png") == false)
 		return false;
 
-	if ((surfX = CyberSurface::onLoad("images/x.png")) == NULL)
+	if (cyberSurface->onLoad("images/o.png") == false)
 		return false;
 
-	if ((surfO = CyberSurface::onLoad("images/o.png")) == NULL)
+	if (cyberSurface->onLoad("images/x_won.png") == false)
 		return false;
 
-	if ((surfXWon = CyberSurface::onLoad("images/x_won.png")) == NULL)
+	if (cyberSurface->onLoad("images/o_won.png") == false)
 		return false;
 
-	if ((surfOWon = CyberSurface::onLoad("images/o_won.png")) == NULL)
-		return false;
-
+		
 	//CyberSurface::transparent(surfO, 255, 0, 255);
-	CyberSurface::transparent(surfX, 255, 0, 255);
+	//CyberSurface::transparent(surfX, 255, 0, 255);
 
-	CyberSurface::transparent(surfXWon, 255, 0, 255);
-	CyberSurface::transparent(surfOWon, 255, 0, 255);
+	//CyberSurface::transparent(surfXWon, 255, 0, 255);
+	//CyberSurface::transparent(surfOWon, 255, 0, 255);
 
 
 	reset();

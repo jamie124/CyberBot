@@ -13,6 +13,8 @@ Cyber::Cyber() {
 
 	currentPlayer = 0;
 
+	cyberSurface = new CyberSurface;
+
 	surfDisplay = NULL;
 	surfGrid = NULL;
 	surfX = NULL;
@@ -71,10 +73,11 @@ int Cyber::getValueFromGrid(int i, int g){
 }
 
 void Cyber::checkForWinner(int recurseLevel) {
-	int nextRecurseLevel = 1;
+	int nextRecurseLevel = recurseLevel;
 	bool keepRecursing = true;
 	int horizontalTotal = 0;
 	int verticalTotal = 0;
+
 
 	for (int i = 0; i < 3; i++) {
 		switch (recurseLevel){
@@ -91,7 +94,10 @@ void Cyber::checkForWinner(int recurseLevel) {
 						winner = 2;
 						keepRecursing = false;
 					}
+					std::cout << "Vertical recurse i = " << i << " g = " << g << std::endl;
 				}
+
+				std::cout << " Total = " << verticalTotal << std::endl;
 				break;
 			}
 			case 1: {
@@ -103,29 +109,53 @@ void Cyber::checkForWinner(int recurseLevel) {
 					if (horizontalTotal == 3) {
 						winner = 1;
 						keepRecursing = false;
-					} else if (horizontalTotal == 12) {
+					} else if (horizontalTotal == 15) {
 						winner = 2;
 						keepRecursing = false;
 					}
+				
+					std::cout << "Horizontal recurse i = " << i << " g = " << g << std::endl;
 				}
+
+				std::cout << " Total = " << horizontalTotal << std::endl;
 				break;
 			}
 		}
-			// Go to next recursion level
-			if (nextRecurseLevel < 2)
-				nextRecurseLevel++;
-			else
-				keepRecursing = false;
-		
-	}
-		// Reset totals for next row
+				// Reset totals for next row
 	verticalTotal = 0;
 	horizontalTotal = 0;
+
+	}
+
+	std::cout << std::endl;
 	
+	// Go to next recursion level
+	if (nextRecurseLevel < 2)
+		nextRecurseLevel++;
+	else
+		keepRecursing = false;
 
 	// Now check for horizontal winners
 	if (keepRecursing)
 		checkForWinner(nextRecurseLevel);
+}
+
+// Removes any directories from a filepath so just the filename is returned
+std::string Cyber::cleanFilename(std::string filename){
+	char* filepath = (char *)filename.c_str();
+	int posOfLastSlash = 1;
+
+	while(*filepath++){
+		if (*filepath == '/'){
+			posOfLastSlash++;
+			break;
+		}else{
+			posOfLastSlash++;
+		}
+	}
+
+	return filename.erase(0, posOfLastSlash);
+	
 }
 
 int main(int argc, char* argv[])

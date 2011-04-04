@@ -6,9 +6,30 @@
  */
 
 #include "cyber_surface.h"
-
 CyberSurface::CyberSurface(){
+	surfaces = new std::map<std::string, SDL_Surface*>;
+}
 
+
+SDL_Surface* CyberSurface::getSurface(std::string filename){
+	std::map<std::string, SDL_Surface*>::iterator itr;
+
+	itr = surfaces->find(filename);
+
+	return itr->second;
+}
+
+bool CyberSurface::addSurface(std::string filename, SDL_Surface* surface){
+	//std::map<std::string, SDL_Surface*> surfaces;
+	
+	std::cout << "Adding surface: " << filename << std::endl;
+	surfaces->insert(std::pair<std::string, SDL_Surface*>(filename, surface));
+
+		return true;
+	//} else {
+		//std::cout << "Could not add \"" << filename << "\". A surface with that name has already been used." << std::endl;
+		//return false;
+	//}
 }
 
 SDL_Surface* CyberSurface::onLoad(char* file){
@@ -16,11 +37,14 @@ SDL_Surface* CyberSurface::onLoad(char* file){
 	SDL_Surface* returnSurf = NULL;
 
 	if ((tempSurf = IMG_Load(file)) == NULL){
-		printf("Couldn't load %s:%s\n",file,IMG_GetError());
+		std::cout << "Couldn't load file: " << file << " Error message: " << IMG_GetError() << std::endl;
 		return NULL;
 	}
 
 	returnSurf = SDL_DisplayFormatAlpha(tempSurf);
+	
+	CyberSurface::addSurface(Cyber::cleanFilename(file), returnSurf);
+
 	SDL_FreeSurface(tempSurf);
 
 	return returnSurf;
