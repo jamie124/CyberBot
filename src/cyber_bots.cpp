@@ -16,11 +16,6 @@ Cyber::Cyber() {
 	cyberSurface = new CyberSurface;
 
 	surfDisplay = NULL;
-	surfGrid = NULL;
-	surfX = NULL;
-	surfO = NULL;
-	surfXWon = NULL;
-	surfOWon = NULL;
 
 	running = true;
 }
@@ -61,7 +56,7 @@ void Cyber::setCell(int horizontal, int verticle, int type) {
 	grid[horizontal][verticle] = type;
 }
 
-int Cyber::getValueFromGrid(int i, int g){
+int Cyber::getValueFromGrid(int i, int g) {
 	int value = grid[i][g];
 
 	if (value == 1)
@@ -78,14 +73,33 @@ void Cyber::checkForWinner(int recurseLevel) {
 	int horizontalTotal = 0;
 	int verticalTotal = 0;
 
-
 	for (int i = 0; i < 3; i++) {
-		switch (recurseLevel){
-			case 0:{
+		switch (recurseLevel) {
+			case 0: {
 				for (int g = 0; g < 3; g++) {
 
 					// To prevent an X and O next to each other causing a win make 2 increase by 4 instead
-					verticalTotal += getValueFromGrid(g, i);
+					horizontalTotal += getValueFromGrid(g, i);
+
+					if (horizontalTotal == 3) {
+						winner = 1;
+						keepRecursing = false;
+					} else if (horizontalTotal == 12) {
+						winner = 2;
+						keepRecursing = false;
+					}
+					std::cout << "Horizontal recurse i = " << i << " g = " << g
+							<< std::endl;
+				}
+
+				std::cout << " Total = " << horizontalTotal << std::endl;
+				break;
+			}
+			case 1: {
+				for (int g = 0; g < 3; g++) {
+
+					// To prevent an X and O next to each other causing a win make 2 increase by 4 instead
+					verticalTotal += getValueFromGrid(i, g);
 
 					if (verticalTotal == 3) {
 						winner = 1;
@@ -94,41 +108,23 @@ void Cyber::checkForWinner(int recurseLevel) {
 						winner = 2;
 						keepRecursing = false;
 					}
-					std::cout << "Vertical recurse i = " << i << " g = " << g << std::endl;
+
+					std::cout << "Vertical recurse i = " << i << " g = " << g
+							<< std::endl;
 				}
 
 				std::cout << " Total = " << verticalTotal << std::endl;
 				break;
 			}
-			case 1: {
-				for (int g = 0; g < 3; g++) {
-
-					// To prevent an X and O next to each other causing a win make 2 increase by 4 instead
-					horizontalTotal += getValueFromGrid(i, g);
-
-					if (horizontalTotal == 3) {
-						winner = 1;
-						keepRecursing = false;
-					} else if (horizontalTotal == 15) {
-						winner = 2;
-						keepRecursing = false;
-					}
-				
-					std::cout << "Horizontal recurse i = " << i << " g = " << g << std::endl;
-				}
-
-				std::cout << " Total = " << horizontalTotal << std::endl;
-				break;
-			}
 		}
-				// Reset totals for next row
-	verticalTotal = 0;
-	horizontalTotal = 0;
+		// Reset totals for next row
+		verticalTotal = 0;
+		horizontalTotal = 0;
 
 	}
 
 	std::cout << std::endl;
-	
+
 	// Go to next recursion level
 	if (nextRecurseLevel < 2)
 		nextRecurseLevel++;
@@ -141,25 +137,29 @@ void Cyber::checkForWinner(int recurseLevel) {
 }
 
 // Removes any directories from a filepath so just the filename is returned
-std::string Cyber::cleanFilename(std::string filename){
-	char* filepath = (char *)filename.c_str();
+std::string Cyber::cleanFilename(std::string filename) {
+	char* filepath = (char *) filename.c_str();
 	int posOfLastSlash = 1;
 
-	while(*filepath++){
-		if (*filepath == '/'){
+	while (*filepath++) {
+		if (*filepath == '/') {
 			posOfLastSlash++;
 			break;
-		}else{
+		} else {
 			posOfLastSlash++;
 		}
 	}
 
 	return filename.erase(0, posOfLastSlash);
-	
+
 }
 
-int main(int argc, char* argv[])
-{
+// Lazy and dirty method, it's kinda platform friendly though
+void Cyber::clearScreen() {
+    std::cout << std::string( 100, '\n' );
+}
+
+int main(int argc, char* argv[]) {
 	Cyber cyber;
 
 	return cyber.onExecute();

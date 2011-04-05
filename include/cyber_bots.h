@@ -23,7 +23,7 @@
 
 class CyberSurface;
 
-class Cyber : public CyberEvent{
+class Cyber: public CyberEvent {
 
 private:
 	bool running;
@@ -45,9 +45,7 @@ private:
 	int currentPlayer;
 
 	enum {
-		GRID_TYPE_NONE = 0,
-		GRID_TYPE_X,
-		GRID_TYPE_O
+		GRID_TYPE_NONE = 0, GRID_TYPE_X, GRID_TYPE_O
 	};
 
 public:
@@ -57,6 +55,7 @@ public:
 	bool onInit();
 	void onEvent(SDL_Event* event);
 	void onLButtonDown(int mX, int mY);
+	void onKeyDown(SDLKey sym, SDLMod mod, Uint16 unicode);
 	void onExit();
 	void onLoop();
 	void onRender();
@@ -67,6 +66,10 @@ public:
 	void checkForWinner(int recurseLevel);
 	int getValueFromGrid(int i, int g);
 	static std::string cleanFilename(std::string filename);
+
+	// Clear screen
+	static void clearScreen();
+
 };
 
 #endif /* CYBER_BOTS_H_ */
