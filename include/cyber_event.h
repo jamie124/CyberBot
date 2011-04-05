@@ -8,11 +8,9 @@
 #ifndef CYBER_EVENT_H_
 #define CYBER_EVENT_H_
 
-#ifdef _WIN32 
+#ifdef _WIN32
 #include <SDL.h>
-#endif
-
-#ifdef _LINUX
+#else
 #include <SDL/SDL.h>
 #endif
 

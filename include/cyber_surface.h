@@ -8,12 +8,10 @@
 #ifndef CYBER_SURFACE_H_
 #define CYBER_SURFACE_H_
 
-#ifdef _WIN32 
+#ifdef _WIN32
 #include <SDL.h>
 #include <SDL_image.h>
-#endif
-
-#ifdef _LINUX
+#else
 #include <SDL/SDL.h>
 #include <SDL/SDL_image.h>
 #endif
