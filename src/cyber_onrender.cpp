@@ -8,7 +8,7 @@
 #include "cyber_bots.h"
 
 void Cyber::onRender() {
-	CyberSurface::onDraw(surfDisplay, surfGrid, 0, 0);
+	cyberSurface->onDraw(surfDisplay, cyberSurface->getSurface("grid.png"), 0, 0);
 
 	for (int i = 0; i < 3; i++) {
 		for (int g = 0; g < 3; g++) {
@@ -16,18 +16,18 @@ void Cyber::onRender() {
 			int y = g * 200;
 
 			if (grid[i][g] == GRID_TYPE_X) {
-				CyberSurface::onDraw(surfDisplay, surfX, x, y);
+				cyberSurface->onDraw(surfDisplay, cyberSurface->getSurface("x.png"), x, y);
 			} else if (grid[i][g] == GRID_TYPE_O) {
-				CyberSurface::onDraw(surfDisplay, surfO, x, y);
+				cyberSurface->onDraw(surfDisplay, cyberSurface->getSurface("o.png"), x, y);
 			}
 		}
 	}
 
 	if (winner > -1){
 		if (winner == 1)
-			CyberSurface::onDraw(surfDisplay, surfXWon, 200, 100);
+			cyberSurface->onDraw(surfDisplay, cyberSurface->getSurface("x_won.png"), 200, 100);
 		else if (winner == 2)
-			CyberSurface::onDraw(surfDisplay, surfOWon, 200, 100);
+			cyberSurface->onDraw(surfDisplay, cyberSurface->getSurface("o_won.png"), 200, 100);
 	}
 
 	SDL_Flip(surfDisplay);

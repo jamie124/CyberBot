@@ -15,10 +15,15 @@
 #endif
 
 
+#include <iostream>
+#include <string>
+
 #include "cyber_event.h"
 #include "cyber_surface.h"
 
-class Cyber : public CyberEvent {
+class CyberSurface;
+
+class Cyber : public CyberEvent{
 
 private:
 	bool running;
@@ -32,6 +37,8 @@ private:
 	SDL_Surface* surfXWon;
 	SDL_Surface* surfOWon;
 	SDL_Surface* surfGrid;
+
+	CyberSurface* cyberSurface;
 
 	int grid[3][3];
 
@@ -48,26 +55,18 @@ public:
 	int onExecute();
 
 	bool onInit();
-
 	void onEvent(SDL_Event* event);
-
 	void onLButtonDown(int mX, int mY);
-
 	void onExit();
-
 	void onLoop();
-
 	void onRender();
-
 	void onCleanup();
-
 	void reset();
 
 	void setCell(int horizontal, int verticle, int type);
-
 	void checkForWinner(int recurseLevel);
-
 	int getValueFromGrid(int i, int g);
+	static std::string cleanFilename(std::string filename);
 };
 
 #endif /* CYBER_BOTS_H_ */
