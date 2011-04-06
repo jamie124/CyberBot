@@ -183,6 +183,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\cyber_logger.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\src\cyber_oncleanup.cpp"
 				>
 			</File>
@@ -204,6 +208,10 @@
 			</File>
 			<File
 				RelativePath=".\src\cyber_surface.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\cyber_utils.cpp"
 				>
 			</File>
 			<File
@@ -241,7 +249,15 @@
 				>
 			</File>
 			<File
+				RelativePath=".\include\cyber_logger.h"
+				>
+			</File>
+			<File
 				RelativePath=".\include\cyber_surface.h"
+				>
+			</File>
+			<File
+				RelativePath=".\include\cyber_utils.h"
 				>
 			</File>
 			<File

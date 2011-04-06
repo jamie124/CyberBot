@@ -6,10 +6,20 @@
  */
 
 #include "cyber_surface.h"
+
 CyberSurface::CyberSurface(){
 	surfaces = new std::map<std::string, SDL_Surface*>;
 }
 
+CyberSurface::CyberSurface(CyberLogger * logger){
+	surfaces = new std::map<std::string, SDL_Surface*>;
+	cyberLogger = logger;
+}
+
+CyberSurface::~CyberSurface(){
+	delete surfaces;
+	delete cyberLogger;
+}
 
 SDL_Surface* CyberSurface::getSurface(std::string filename){
 	std::map<std::string, SDL_Surface*>::iterator itr;
@@ -23,6 +33,8 @@ bool CyberSurface::addSurface(std::string filename, SDL_Surface* surface){
 	//std::map<std::string, SDL_Surface*> surfaces;
 	
 	std::cout << "Adding surface: " << filename << std::endl;
+	cyberLogger->addMessage("Addeding surface: " + filename);
+
 	surfaces->insert(std::pair<std::string, SDL_Surface*>(filename, surface));
 
 		return true;

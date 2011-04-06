@@ -21,6 +21,9 @@
 #include <iterator>
 
 #include "cyber_bots.h"
+#include "cyber_logger.h"
+
+class CyberLogger;
 
 class CyberSurface{
 	
@@ -31,8 +34,12 @@ private:
 	//std::map<std::string, SDL_Surface*> *surfaces;
 		
 	Surfaces surfaces;
+
+	CyberLogger* cyberLogger;
 public:
-	CyberSurface();
+	CyberSurface(void);
+	CyberSurface(CyberLogger*);
+	~CyberSurface(void);
 
 	SDL_Surface * onLoad(char* file);
 	bool onDraw(SDL_Surface* destSurf, SDL_Surface* srcSurf, int x, int y);
