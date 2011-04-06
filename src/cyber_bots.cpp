@@ -12,12 +12,19 @@
 Cyber::Cyber() {
 
 	currentPlayer = 0;
+		
+	cyberLogger = new CyberLogger;
 
-	cyberSurface = new CyberSurface;
+	cyberSurface = new CyberSurface(cyberLogger);
 
 	surfDisplay = NULL;
 
 	running = true;
+}
+
+Cyber::~Cyber(){
+	delete cyberSurface;
+	delete cyberLogger;
 }
 
 int Cyber::onExecute() {
@@ -114,6 +121,7 @@ void Cyber::checkForWinner(int recurseLevel) {
 				}
 
 				std::cout << " Total = " << verticalTotal << std::endl;
+				cyberLogger->addMessage("Total = " + CyberUtils::intToString(verticalTotal));
 				break;
 			}
 		}

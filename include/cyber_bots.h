@@ -20,8 +20,11 @@
 
 #include "cyber_event.h"
 #include "cyber_surface.h"
+#include "cyber_logger.h"
+#include "cyber_utils.h"
 
 class CyberSurface;
+class CyberLogger;
 
 class Cyber: public CyberEvent {
 
@@ -39,6 +42,7 @@ private:
 	SDL_Surface* surfGrid;
 
 	CyberSurface* cyberSurface;
+	CyberLogger* cyberLogger;
 
 	int grid[3][3];
 
@@ -50,6 +54,8 @@ private:
 
 public:
 	Cyber();
+	~Cyber();
+
 	int onExecute();
 
 	bool onInit();
