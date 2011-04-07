@@ -6,7 +6,7 @@
 class CyberLogger
 {
 private:
-	typedef std::vector<std::string> *MessageLog;
+	typedef std::vector<std::string>* MessageLog;
 
 	MessageLog messageLog;
 

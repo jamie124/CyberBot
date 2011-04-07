@@ -18,7 +18,7 @@ CyberSurface::CyberSurface(CyberLogger * logger){
 
 CyberSurface::~CyberSurface(){
 	delete surfaces;
-	delete cyberLogger;
+	//delete cyberLogger;
 }
 
 SDL_Surface* CyberSurface::getSurface(std::string filename){
@@ -33,7 +33,7 @@ bool CyberSurface::addSurface(std::string filename, SDL_Surface* surface){
 	//std::map<std::string, SDL_Surface*> surfaces;
 	
 	std::cout << "Adding surface: " << filename << std::endl;
-	cyberLogger->addMessage("Addeding surface: " + filename);
+	cyberLogger->addMessage("Adding surface: " + filename);
 
 	surfaces->insert(std::pair<std::string, SDL_Surface*>(filename, surface));
 

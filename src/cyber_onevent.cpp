@@ -35,7 +35,7 @@ void Cyber::onLButtonDown(int mX, int mY) {
 void Cyber::onKeyDown(SDLKey sym, SDLMod mod, Uint16 unicode){
 	switch(sym){
 		case SDLK_r:
-			// Reset the game
+			Cyber::reset();
 			break;
 		case SDLK_ESCAPE:
 			running = false;

@@ -14,7 +14,6 @@
 #include <SDL/SDL.h>
 #endif
 
-
 #include <iostream>
 #include <string>
 
@@ -35,15 +34,9 @@ private:
 
 	SDL_Surface* surfDisplay;
 
-	SDL_Surface* surfX;
-	SDL_Surface* surfO;
-	SDL_Surface* surfXWon;
-	SDL_Surface* surfOWon;
-	SDL_Surface* surfGrid;
-
 	CyberSurface* cyberSurface;
 	CyberLogger* cyberLogger;
-
+	
 	int grid[3][3];
 
 	int currentPlayer;

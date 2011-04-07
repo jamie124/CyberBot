@@ -10,6 +10,5 @@
 void Cyber::onCleanup(){
 	SDL_FreeSurface(surfDisplay);
 
-
 	SDL_Quit();
 }

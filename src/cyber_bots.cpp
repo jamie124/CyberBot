@@ -12,10 +12,10 @@
 Cyber::Cyber() {
 
 	currentPlayer = 0;
-		
-	cyberLogger = new CyberLogger;
 
+	cyberLogger = new CyberLogger;
 	cyberSurface = new CyberSurface(cyberLogger);
+
 
 	surfDisplay = NULL;
 
@@ -48,6 +48,8 @@ int Cyber::onExecute() {
 }
 
 void Cyber::reset() {
+	currentPlayer = 0;
+	winner = -1;
 	for (int i = 0; i < 3; i++) {
 		for (int x = 0; x < 3; x++)
 			grid[i][x] = GRID_TYPE_NONE;
