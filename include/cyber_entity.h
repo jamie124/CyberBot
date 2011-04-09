@@ -1,11 +1,18 @@
+//#pragma once
+
 #include <vector>
 
 #include "cyber_animation.h"
 #include "cyber_surface.h"
 
+class CyberSurface;
+
 class CyberEntity{
 public:
 	static std::vector<CyberEntity*> entityList;
+
+private:
+	CyberSurface*	cyberSurface;
 
 protected:
 	CyberAnimation	animationControl;
@@ -18,7 +25,7 @@ public:
 	int				height;
 	int				animationState;
 
-	CyberEntity();
+	CyberEntity(CyberSurface* cyberSurface);
 	virtual ~CyberEntity();
 
 	virtual bool onLoad(char* file, int width, int height, int maxFrames);

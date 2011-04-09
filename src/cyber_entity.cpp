@@ -2,7 +2,8 @@
 
 std::vector<CyberEntity*>CyberEntity::entityList;
 
-CyberEntity::CyberEntity(){
+CyberEntity::CyberEntity(CyberSurface* surface){
+	cyberSurface = surface;
 	entitySurf = NULL;
 	x = y = 0.0f;
 	width = height = 0;
@@ -13,7 +14,7 @@ CyberEntity::~CyberEntity(){
 }
 
 bool CyberEntity::onLoad(char* file, int width, int height, int maxFrames){
-	if ((entitySurf = CyberSurface::onLoad(file)) == NULL){
+	if ((entitySurf = cyberSurface->onLoad(file)) == NULL){
 		return false;
 	}
 
@@ -31,7 +32,7 @@ void CyberEntity::onLoop(){
 void CyberEntity::onRender(SDL_Surface* displaySurf){
 	if (entitySurf == NULL || displaySurf == NULL) return;
 
-	CyberSurface::onDraw(displaySurf, entitySurf, x, y, animationState * width, animationControl.getCurrentFrame() * height, width, height);
+	cyberSurface->onDraw(displaySurf, entitySurf, x, y, animationState * width, animationControl.getCurrentFrame() * height, width, height);
 }
 
 void CyberEntity::onCleanup(){

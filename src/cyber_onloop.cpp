@@ -9,5 +9,9 @@
 
 void Cyber::onLoop(){
 
-	yoshiAnimation->onAnimate();
+	for (int i = 0; i < CyberEntity::entityList.size(); i++){
+		if (!CyberEntity::entityList(i)) continue;
+
+		CyberEntity::entityList(i)->onLoop();
+	}
 }

@@ -1,3 +1,4 @@
+#pragma once
 /*
  * cyber_surface.h
  *
@@ -23,7 +24,7 @@
 #include "cyber_bots.h"
 #include "cyber_logger.h"
 
-class CyberLogger;
+//class CyberLogger;
 
 class CyberSurface{
 	

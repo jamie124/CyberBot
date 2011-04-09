@@ -5,8 +5,7 @@
 #include <fstream>
 #include <vector>
 
-class CyberLogger
-{
+class CyberLogger{
 private:
 	const char* filePath;
 

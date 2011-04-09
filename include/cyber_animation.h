@@ -1,7 +1,11 @@
 #ifndef CYBER_ANIMATION_H_
 #define CYBER_ANIMATION_H_
 
+#ifdef _WIN32
 #include <SDL.h>
+#else
+#include <SDL/SDL.h>
+#endif
 
 class CyberAnimation{
 private:

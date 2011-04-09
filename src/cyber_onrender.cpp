@@ -8,11 +8,21 @@
 #include "cyber_bots.h"
 
 void Cyber::onRender() {
+
+	for (int i = 0; i < CyberEntity::entityList.size(); i++){
+		if (!CyberEntity::entityList(i)) continue;
+
+		CyberEntity::entityList(i)->onRender(surfDisplay);
+	}
+
+	/*
 	cyberSurface->onDraw(surfDisplay, cyberSurface->getSurface("grid.png"), 0, 0);
 
 	cyberSurface->onDraw(surfDisplay, cyberSurface->getSurface("bot.png"), 284, 284);
 
 	cyberSurface->onDraw(surfDisplay, cyberSurface->getSurface("yoshi.png"), 0, 290, 0, yoshiAnimation->getCurrentFrame() * 64, 64, 64);
+	*/
+
 	/*
 	for (int i = 0; i < 3; i++) {
 		for (int g = 0; g < 3; g++) {

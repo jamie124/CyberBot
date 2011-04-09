@@ -22,10 +22,12 @@
 #include "cyber_logger.h"
 #include "cyber_utils.h"
 #include "cyber_animation.h"
+#include "cyber_entity.h"
 
 class CyberSurface;
 class CyberLogger;
 class CyberAnimation;
+class CyberEntity;
 
 class Cyber: public CyberEvent {
 
@@ -38,8 +40,11 @@ private:
 
 	CyberSurface* cyberSurface;
 	CyberLogger* cyberLogger;
-	CyberAnimation* yoshiAnimation;
+	//CyberAnimation* yoshiAnimation;
+
+	CyberEntity*		yoshiEntity;
 	
+
 	int grid[3][3];
 
 	int currentPlayer;

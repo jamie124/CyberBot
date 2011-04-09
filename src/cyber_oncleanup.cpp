@@ -10,7 +10,13 @@
 void Cyber::onCleanup(){
 	SDL_FreeSurface(surfDisplay);
 
-	delete yoshiAnimation;
+	for (int i = 0; i < CyberEntity::entityList.size(); i++){
+		if (!CyberEntity::entityList(i)) continue;
+
+		CyberEntity::entityList(i)->onCleanup();
+	}
+
+	CyberEntity::entityList.clear();
 
 	SDL_Quit();
 }

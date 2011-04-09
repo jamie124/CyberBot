@@ -17,6 +17,12 @@ bool Cyber::onInit() {
 		return false;
 	}
 
+	if (yoshiEntity.onLoad("images/yoshi.png") == false)
+		return false;
+
+	CyberEntity::entityList.push_back(&yoshiEntity);
+
+	/*
 	if (cyberSurface->onLoad("images/grid.png") == false)
 		return false;
 	
@@ -26,7 +32,9 @@ bool Cyber::onInit() {
 	yoshiAnimation = new CyberAnimation;
 	yoshiAnimation->maxFrames = 8;
 	yoshiAnimation->oscillate = true;
+	*/
 
+	/*
 	if (cyberSurface->onLoad("images/bot.png") == false)
 		return false;
 
@@ -41,13 +49,7 @@ bool Cyber::onInit() {
 
 	if (cyberSurface->onLoad("images/o_won.png") == false)
 		return false;
-
-		
-	//CyberSurface::transparent(surfO, 255, 0, 255);
-	//CyberSurface::transparent(surfX, 255, 0, 255);
-
-	//CyberSurface::transparent(surfXWon, 255, 0, 255);
-	//CyberSurface::transparent(surfOWon, 255, 0, 255);
+	*/
 
 
 	reset();

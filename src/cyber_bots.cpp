@@ -16,6 +16,7 @@ Cyber::Cyber() {
 	cyberLogger = new CyberLogger;
 	cyberSurface = new CyberSurface(cyberLogger);
 
+	yoshiEntity = new CyberEntity(cyberSurface);
 
 	surfDisplay = NULL;
 
