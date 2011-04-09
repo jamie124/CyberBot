@@ -8,7 +8,7 @@
 #include "cyber_bots.h"
 
 void Cyber::onCleanup(){
-	SDL_FreeSurface(surfDisplay);
+	SDL_FreeSurface(displaySurf);
 
 	for (int i = 0; i < CyberEntity::entityList.size(); i++){
 		if (!CyberEntity::entityList[i]) continue;
@@ -17,6 +17,8 @@ void Cyber::onCleanup(){
 	}
 
 	CyberEntity::entityList.clear();
+
+	cyberArea->onCleanup();
 
 	SDL_Quit();
 }

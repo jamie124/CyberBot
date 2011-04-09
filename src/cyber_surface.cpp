@@ -106,3 +106,7 @@ bool CyberSurface::transparent(SDL_Surface* surfDest, int r, int g, int b){
 
 	return true;
 }
+
+CyberLogger* CyberSurface::getLogger(){
+	return cyberLogger;
+}

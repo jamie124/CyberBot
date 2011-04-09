@@ -12,52 +12,59 @@ bool Cyber::onInit() {
 	if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
 		return false;
 
-	if ((surfDisplay = SDL_SetVideoMode(WWIDTH, WHEIGHT, 32,
+	if ((displaySurf = SDL_SetVideoMode(WWIDTH, WHEIGHT, 32,
 			SDL_HWSURFACE | SDL_DOUBLEBUF)) == NULL) {
 		return false;
 	}
 
-	if (yoshiEntity->onLoad("images/yoshi.png", 64, 64, 8) == false)
+	if (cyberArea->onLoad("maps/1.area") == false){
 		return false;
+	}
 
-	CyberEntity::entityList.push_back(yoshiEntity);
+	SDL_EnableKeyRepeat(1, SDL_DEFAULT_REPEAT_INTERVAL / 3);
+	/*
+	 if (yoshiEntity->onLoad("images/yoshi.png", 64, 64, 8) == false)
+	 return false;
 
-	if (yoshiEntity2->onLoad("images/yoshi.png", 64, 64, 8) == false)
-		return false;
+	 CyberEntity::entityList.push_back(yoshiEntity);
 
-	yoshiEntity2->x = 100;
+	 if (yoshiEntity2->onLoad("images/yoshi.png", 64, 64, 8) == false)
+	 return false;
 
-	CyberEntity::entityList.push_back(yoshiEntity2);
+
+	 yoshiEntity2->x = 100;
+
+	 CyberEntity::entityList.push_back(yoshiEntity2);
+	 */
 
 	/*
-	if (cyberSurface->onLoad("images/grid.png") == false)
-		return false;
-	
-	if (cyberSurface->onLoad("images/yoshi.png") == false)
-		return false;
+	 if (cyberSurface->onLoad("images/grid.png") == false)
+	 return false;
 
-	yoshiAnimation = new CyberAnimation;
-	yoshiAnimation->maxFrames = 8;
-	yoshiAnimation->oscillate = true;
-	*/
+	 if (cyberSurface->onLoad("images/yoshi.png") == false)
+	 return false;
+
+	 yoshiAnimation = new CyberAnimation;
+	 yoshiAnimation->maxFrames = 8;
+	 yoshiAnimation->oscillate = true;
+	 */
 
 	/*
-	if (cyberSurface->onLoad("images/bot.png") == false)
-		return false;
+	 if (cyberSurface->onLoad("images/bot.png") == false)
+	 return false;
 
-	if (cyberSurface->onLoad("images/x.png") == false)
-		return false;
+	 if (cyberSurface->onLoad("images/x.png") == false)
+	 return false;
 
-	if (cyberSurface->onLoad("images/o.png") == false)
-		return false;
+	 if (cyberSurface->onLoad("images/o.png") == false)
+	 return false;
 
-	if (cyberSurface->onLoad("images/x_won.png") == false)
-		return false;
+	 if (cyberSurface->onLoad("images/x_won.png") == false)
+	 return false;
 
-	if (cyberSurface->onLoad("images/o_won.png") == false)
-		return false;
-	*/
-
+	 if (cyberSurface->onLoad("images/o_won.png") == false)
+	 return false;
+	 */
 
 	reset();
 

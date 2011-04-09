@@ -1,8 +1,8 @@
 #include "cyber_map.h"
-#include "define.h"
 
-CyberMap::CyberMap() {
+CyberMap::CyberMap(CyberSurface* surface) {
 	tilesetSurf = NULL;
+	cyberSurface = surface;
 }
 
 bool CyberMap::onLoad(char* file) {
@@ -14,8 +14,8 @@ bool CyberMap::onLoad(char* file) {
 		return false;
 	}
 
-	for(int g = 0;g < 4;g++) {
-		for(int X = 0;X < MAP_WIDTH;X++) {
+	for (int y = 0; y < MAP_HEIGHT; y++) {
+		for (int x = 0; x < MAP_WIDTH; x++) {
 			CyberTile tempTile;
 
 			fscanf(fileHandle, "%d:%d ", &tempTile.tileID, &tempTile.typeID);
@@ -28,4 +28,32 @@ bool CyberMap::onLoad(char* file) {
 	fclose(fileHandle);
 
 	return true;
+}
+
+void CyberMap::onRender(SDL_Surface* displaySurf, int mapX, int mapY) {
+	if (tilesetSurf == NULL)
+		return;
+
+	int tilesetWidth = tilesetSurf->w / TILE_SIZE;
+	int tilesetHeight = tilesetSurf->h / TILE_SIZE;
+
+	int id = 0;
+
+	for (int y = 0; y < MAP_HEIGHT; y++) {
+		for (int x = 0; x < MAP_WIDTH; x++) {
+			if (tileList[id].typeID == TILE_TYPE_NONE) {
+				id++;
+				continue;
+			}
+
+			int tX = mapX + (x * TILE_SIZE);
+			int tY = mapY + (y * TILE_SIZE);
+
+			int tilesetX = (tileList[id].tileID % tilesetWidth) * TILE_SIZE;
+			int tilesetY = (tileList[id].tileID / tilesetWidth) * TILE_SIZE;
+
+			cyberSurface->onDraw(displaySurf, tilesetSurf, tX, tY, tilesetX, tilesetY, TILE_SIZE, TILE_SIZE);
+			id++;
+		}
+	}
 }

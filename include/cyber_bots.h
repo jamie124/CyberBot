@@ -24,11 +24,14 @@
 #include "cyber_animation.h"
 #include "cyber_entity.h"
 #include "define.h"
+#include "cyber_area.h"
+#include "cyber_camera.h"
 
 class CyberSurface;
 class CyberLogger;
 class CyberAnimation;
 class CyberEntity;
+class CyberArea;
 
 class Cyber: public CyberEvent {
 
@@ -37,15 +40,13 @@ private:
 
 	int winner;
 
-	SDL_Surface* surfDisplay;
+	SDL_Surface* displaySurf;
 
 	CyberSurface* cyberSurface;
 	CyberLogger* cyberLogger;
-	//CyberAnimation* yoshiAnimation;
 
-	CyberEntity*		yoshiEntity;
-	CyberEntity*		yoshiEntity2;
-	
+	CyberArea*			cyberArea;
+	CyberCamera*		cyberCamera;
 
 	int grid[3][3];
 

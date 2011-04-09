@@ -26,14 +26,11 @@
 
 //class CyberLogger;
 
-class CyberSurface{
-	
-private: 
+class CyberSurface {
+
+private:
 	typedef std::map<std::string, SDL_Surface*> *Surfaces;
-	//typedef std::pair<std::string, SDL_Surface*> SurfacePair;
-//	Surfaces surfaces;
-	//std::map<std::string, SDL_Surface*> *surfaces;
-		
+
 	Surfaces surfaces;
 
 	CyberLogger* cyberLogger;
@@ -44,14 +41,15 @@ public:
 
 	SDL_Surface * onLoad(char* file);
 	bool onDraw(SDL_Surface* destSurf, SDL_Surface* srcSurf, int x, int y);
-	bool onDraw(SDL_Surface* destSurf, SDL_Surface* srcSurf, int x, int y, int x2, int y2, int w, int h);
+	bool onDraw(SDL_Surface* destSurf, SDL_Surface* srcSurf, int x, int y,
+			int x2, int y2, int w, int h);
 
 	static bool transparent(SDL_Surface* surfDest, int r, int g, int b);
 
 	bool addSurface(std::string, SDL_Surface*);
 	SDL_Surface* getSurface(std::string);
 
-	//int test;
+	CyberLogger* getLogger();
 };
 
 #endif /* CYBER_SURFACE_H_ */

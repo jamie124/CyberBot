@@ -38,6 +38,19 @@ void Cyber::onKeyDown(SDLKey sym, SDLMod mod, Uint16 unicode){
 			break;
 		case SDLK_ESCAPE:
 			running = false;
+			break;
+		case SDLK_UP:
+			cyberCamera->onMove(0, 5);
+			break;
+		case SDLK_DOWN:
+			cyberCamera->onMove(0, -5);
+			break;
+		case SDLK_LEFT:
+			cyberCamera->onMove(5, 0);
+			break;
+		case SDLK_RIGHT:
+			cyberCamera->onMove(-5, 0);
+			break;
 		default:
 			break;
 	}

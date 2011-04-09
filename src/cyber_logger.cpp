@@ -21,5 +21,7 @@ CyberLogger::~CyberLogger(void){
 
 void CyberLogger::addMessage(std::string newMessage){
 	fileOut << newMessage + "\n";
+
+	std::cout << newMessage + "\n";
 }
 

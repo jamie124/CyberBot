@@ -12,9 +12,10 @@ void Cyber::onRender() {
 	for (int i = 0; i < CyberEntity::entityList.size(); i++){
 		if (!CyberEntity::entityList[i]) continue;
 
-		CyberEntity::entityList[i]->onRender(surfDisplay);
+		CyberEntity::entityList[i]->onRender(displaySurf);
 	}
 
+	cyberArea->onRender(displaySurf, cyberCamera->getX(), cyberCamera->getY());
 	/*
 	cyberSurface->onDraw(surfDisplay, cyberSurface->getSurface("grid.png"), 0, 0);
 
@@ -45,5 +46,5 @@ void Cyber::onRender() {
 	}
 	*/
 
-	SDL_Flip(surfDisplay);
+	SDL_Flip(displaySurf);
 }
