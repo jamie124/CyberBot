@@ -195,6 +195,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\cyber_map.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\src\cyber_oncleanup.cpp"
 				>
 			</File>
@@ -216,6 +220,10 @@
 			</File>
 			<File
 				RelativePath=".\src\cyber_surface.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\cyber_tile.cpp"
 				>
 			</File>
 			<File
@@ -269,11 +277,23 @@
 				>
 			</File>
 			<File
+				RelativePath=".\include\cyber_map.h"
+				>
+			</File>
+			<File
 				RelativePath=".\include\cyber_surface.h"
 				>
 			</File>
 			<File
+				RelativePath=".\include\cyber_tile.h"
+				>
+			</File>
+			<File
 				RelativePath=".\include\cyber_utils.h"
+				>
+			</File>
+			<File
+				RelativePath=".\include\define.h"
 				>
 			</File>
 			<File

@@ -1,4 +1,5 @@
 #include "cyber_map.h"
+#include "define.h"
 
 CyberMap::CyberMap() {
 	tilesetSurf = NULL;
@@ -13,15 +14,15 @@ bool CyberMap::onLoad(char* file) {
 		return false;
 	}
 
-	for(int Y = 0;Y < MAP_HEIGHT;Y++) {
+	for(int g = 0;g < 4;g++) {
 		for(int X = 0;X < MAP_WIDTH;X++) {
-			CTile tempTile;
+			CyberTile tempTile;
 
-			fscanf(FileHandle, "%d:%d ", &tempTile.TileID, &tempTile.TypeID);
+			fscanf(fileHandle, "%d:%d ", &tempTile.tileID, &tempTile.typeID);
 
-			TileList.push_back(tempTile);
+			tileList.push_back(tempTile);
 		}
-		fscanf(FileHandle, "\n");
+		fscanf(fileHandle, "\n");
 	}
 
 	fclose(fileHandle);
