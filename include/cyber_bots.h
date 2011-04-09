@@ -43,6 +43,7 @@ private:
 	//CyberAnimation* yoshiAnimation;
 
 	CyberEntity*		yoshiEntity;
+	CyberEntity*		yoshiEntity2;
 	
 
 	int grid[3][3];

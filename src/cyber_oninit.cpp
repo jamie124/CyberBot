@@ -17,10 +17,17 @@ bool Cyber::onInit() {
 		return false;
 	}
 
-	if (yoshiEntity.onLoad("images/yoshi.png") == false)
+	if (yoshiEntity->onLoad("images/yoshi.png", 64, 64, 8) == false)
 		return false;
 
-	CyberEntity::entityList.push_back(&yoshiEntity);
+	CyberEntity::entityList.push_back(yoshiEntity);
+
+	if (yoshiEntity2->onLoad("images/yoshi.png", 64, 64, 8) == false)
+		return false;
+
+	yoshiEntity2->x = 100;
+
+	CyberEntity::entityList.push_back(yoshiEntity2);
 
 	/*
 	if (cyberSurface->onLoad("images/grid.png") == false)

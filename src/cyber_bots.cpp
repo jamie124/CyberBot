@@ -17,6 +17,7 @@ Cyber::Cyber() {
 	cyberSurface = new CyberSurface(cyberLogger);
 
 	yoshiEntity = new CyberEntity(cyberSurface);
+	yoshiEntity2 =new CyberEntity(cyberSurface);
 
 	surfDisplay = NULL;
 
@@ -26,6 +27,9 @@ Cyber::Cyber() {
 Cyber::~Cyber(){
 	delete cyberSurface;
 	delete cyberLogger;
+
+	delete yoshiEntity;
+	delete yoshiEntity2;
 }
 
 int Cyber::onExecute() {

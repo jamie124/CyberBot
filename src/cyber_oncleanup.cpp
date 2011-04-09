@@ -11,9 +11,9 @@ void Cyber::onCleanup(){
 	SDL_FreeSurface(surfDisplay);
 
 	for (int i = 0; i < CyberEntity::entityList.size(); i++){
-		if (!CyberEntity::entityList(i)) continue;
+		if (!CyberEntity::entityList[i]) continue;
 
-		CyberEntity::entityList(i)->onCleanup();
+		CyberEntity::entityList[i]->onCleanup();
 	}
 
 	CyberEntity::entityList.clear();

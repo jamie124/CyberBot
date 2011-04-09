@@ -1,4 +1,6 @@
 //#pragma once
+#ifndef CYBER_ENTITY_H_
+#define CYBER_ENTITY_H_
 
 #include <vector>
 
@@ -33,3 +35,5 @@ public:
 	virtual void onRender(SDL_Surface* displaySurf);
 	virtual void onCleanup();
 };
+
+#endif

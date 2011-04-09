@@ -10,8 +10,8 @@
 void Cyber::onLoop(){
 
 	for (int i = 0; i < CyberEntity::entityList.size(); i++){
-		if (!CyberEntity::entityList(i)) continue;
+		if (!CyberEntity::entityList[i]) continue;
 
-		CyberEntity::entityList(i)->onLoop();
+		CyberEntity::entityList[i]->onLoop();
 	}
 }
