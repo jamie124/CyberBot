@@ -20,6 +20,16 @@ bool Cyber::onInit() {
 	if (cyberSurface->onLoad("images/grid.png") == false)
 		return false;
 	
+	if (cyberSurface->onLoad("images/yoshi.png") == false)
+		return false;
+
+	yoshiAnimation = new CyberAnimation;
+	yoshiAnimation->maxFrames = 8;
+	yoshiAnimation->oscillate = true;
+
+	if (cyberSurface->onLoad("images/bot.png") == false)
+		return false;
+
 	if (cyberSurface->onLoad("images/x.png") == false)
 		return false;
 

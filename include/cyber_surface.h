@@ -43,6 +43,7 @@ public:
 
 	SDL_Surface * onLoad(char* file);
 	bool onDraw(SDL_Surface* destSurf, SDL_Surface* srcSurf, int x, int y);
+	bool onDraw(SDL_Surface* destSurf, SDL_Surface* srcSurf, int x, int y, int x2, int y2, int w, int h);
 
 	static bool transparent(SDL_Surface* surfDest, int r, int g, int b);
 

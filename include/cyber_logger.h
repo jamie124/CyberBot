@@ -8,10 +8,6 @@
 class CyberLogger
 {
 private:
-	typedef std::vector<std::string>* MessageLog;
-
-	MessageLog messageLog;
-
 	const char* filePath;
 
 	std::ofstream fileOut;

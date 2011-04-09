@@ -76,6 +76,27 @@ bool CyberSurface::onDraw(SDL_Surface* destSurf, SDL_Surface* srcSurf, int x, in
 	return true;
 }
 
+bool CyberSurface::onDraw(SDL_Surface* destSurf, SDL_Surface* srcSurf, int x, int y, int x2, int y2, int w, int h){
+	if (destSurf == NULL || srcSurf == NULL)
+		return false;
+
+	SDL_Rect destRect;
+
+	destRect.x = x;
+	destRect.y = y;
+
+	SDL_Rect srcRect;
+
+	srcRect.x = x2;
+	srcRect.y = y2;
+	srcRect.w = w;
+	srcRect.h = h;
+
+	SDL_BlitSurface(srcSurf, &srcRect, destSurf, &destRect);
+
+	return true;
+}
+
 bool CyberSurface::transparent(SDL_Surface* surfDest, int r, int g, int b){
 	if (surfDest == NULL){
 		return false;

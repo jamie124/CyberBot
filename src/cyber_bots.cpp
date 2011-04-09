@@ -41,7 +41,6 @@ int Cyber::onExecute() {
 		onLoop();
 		onRender();
 	}
-
 	onCleanup();
 
 	return 0;
@@ -97,11 +96,7 @@ void Cyber::checkForWinner(int recurseLevel) {
 						winner = 2;
 						keepRecursing = false;
 					}
-					std::cout << "Horizontal recurse i = " << i << " g = " << g
-							<< std::endl;
 				}
-
-				std::cout << " Total = " << horizontalTotal << std::endl;
 				break;
 			}
 			case 1: {
@@ -117,13 +112,7 @@ void Cyber::checkForWinner(int recurseLevel) {
 						winner = 2;
 						keepRecursing = false;
 					}
-
-					std::cout << "Vertical recurse i = " << i << " g = " << g
-							<< std::endl;
 				}
-
-				std::cout << " Total = " << verticalTotal << std::endl;
-				cyberLogger->addMessage("Total = " + CyberUtils::intToString(verticalTotal));
 				break;
 			}
 		}
@@ -132,8 +121,6 @@ void Cyber::checkForWinner(int recurseLevel) {
 		horizontalTotal = 0;
 
 	}
-
-	std::cout << std::endl;
 
 	// Go to next recursion level
 	if (nextRecurseLevel < 2)

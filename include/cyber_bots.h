@@ -21,9 +21,11 @@
 #include "cyber_surface.h"
 #include "cyber_logger.h"
 #include "cyber_utils.h"
+#include "cyber_animation.h"
 
 class CyberSurface;
 class CyberLogger;
+class CyberAnimation;
 
 class Cyber: public CyberEvent {
 
@@ -36,6 +38,7 @@ private:
 
 	CyberSurface* cyberSurface;
 	CyberLogger* cyberLogger;
+	CyberAnimation* yoshiAnimation;
 	
 	int grid[3][3];
 

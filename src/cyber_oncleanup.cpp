@@ -10,5 +10,7 @@
 void Cyber::onCleanup(){
 	SDL_FreeSurface(surfDisplay);
 
+	delete yoshiAnimation;
+
 	SDL_Quit();
 }

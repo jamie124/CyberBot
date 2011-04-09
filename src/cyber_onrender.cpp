@@ -10,6 +10,10 @@
 void Cyber::onRender() {
 	cyberSurface->onDraw(surfDisplay, cyberSurface->getSurface("grid.png"), 0, 0);
 
+	cyberSurface->onDraw(surfDisplay, cyberSurface->getSurface("bot.png"), 284, 284);
+
+	cyberSurface->onDraw(surfDisplay, cyberSurface->getSurface("yoshi.png"), 0, 290, 0, yoshiAnimation->getCurrentFrame() * 64, 64, 64);
+	/*
 	for (int i = 0; i < 3; i++) {
 		for (int g = 0; g < 3; g++) {
 			int x = i * 200;
@@ -29,6 +33,7 @@ void Cyber::onRender() {
 		else if (winner == 2)
 			cyberSurface->onDraw(surfDisplay, cyberSurface->getSurface("o_won.png"), 200, 100);
 	}
+	*/
 
 	SDL_Flip(surfDisplay);
 }

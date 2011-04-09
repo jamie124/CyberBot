@@ -9,4 +9,5 @@
 
 void Cyber::onLoop(){
 
+	yoshiAnimation->onAnimate();
 }

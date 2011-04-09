@@ -27,7 +27,6 @@ void Cyber::onLButtonDown(int mX, int mY) {
 		currentPlayer = 0;
 	}
 
-	clearScreen();
 	checkForWinner(0);
 
 }
