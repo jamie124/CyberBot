@@ -23,6 +23,7 @@
 #include "cyber_utils.h"
 #include "cyber_animation.h"
 #include "cyber_entity.h"
+#include "define.h"
 
 class CyberSurface;
 class CyberLogger;
