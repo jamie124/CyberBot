@@ -179,7 +179,15 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\cyber_area.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\src\cyber_bots.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\cyber_camera.cpp"
 				>
 			</File>
 			<File
@@ -261,7 +269,15 @@
 				>
 			</File>
 			<File
+				RelativePath=".\include\cyber_area.h"
+				>
+			</File>
+			<File
 				RelativePath=".\include\cyber_bots.h"
+				>
+			</File>
+			<File
+				RelativePath=".\include\cyber_camera.h"
 				>
 			</File>
 			<File
@@ -328,6 +344,18 @@
 			</File>
 			<File
 				RelativePath=".\images\x_won.png"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="maps"
+			>
+			<File
+				RelativePath=".\maps\1.area"
+				>
+			</File>
+			<File
+				RelativePath=".\maps\basic.map"
 				>
 			</File>
 		</Filter>
